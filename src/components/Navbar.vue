@@ -38,8 +38,8 @@ export default {
         // }),
         ...mapGetters({
             user: gettersTypes.currentUser,
-            isLoggedIn: gettersTypes.isLoggedIn,
-            isAnonymous: gettersTypes.isAnonymous
+			isLoggedIn: gettersTypes.isLoggedIn,
+			isAnonymous: gettersTypes.isAnonymous,
         }),
         // user(){
         //     return this.$store.getters[gettersTypes.currentUser]
