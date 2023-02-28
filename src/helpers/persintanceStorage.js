@@ -16,3 +16,10 @@ export const setItem = (key, data) => {
     return null
   }
 }
+export const removeItem = key =>{
+  try {
+    localStorage.removeItem(key)
+  } catch (error) {
+    console.log('error deleting data');
+  }
+}
