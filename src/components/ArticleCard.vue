@@ -6,12 +6,12 @@
             <div class="card-body">
               <p class="card-title fw-bold">{{ article.title }}</p>
               <p class="card-text">{{ article.description }}</p>
-              <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-center card-footer">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Read article</button>
+                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                 </div>
-                <small class="text-muted">9 mins</small>
+                <small class="text-muted">{{ new Date(article.createdAt).toLocaleDateString('uzb')}}</small>
               </div>
             </div>
           </div>

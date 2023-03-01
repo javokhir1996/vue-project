@@ -13,11 +13,11 @@ const mutations = {
         state.error = null
     },
     getArticlesSeccess(state, payload){
-        state.isLoading = true
+        state.isLoading = false
         state.data = payload
     },
     getArticlesFailure(state){
-        state.isLoading = true
+        state.isLoading = false
     }
 }
 
