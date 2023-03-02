@@ -5,10 +5,10 @@
 
             <div class="card-body">
               <p class="card-title fw-bold">{{ article.title }}</p>
-              <p class="card-text">{{ article.description }}</p>
+              <p class="card-text">{{ article.description.slice(0, 250) }}...</p>
               <div class="d-flex justify-content-between align-items-center card-footer">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Read article</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" @click="navigateHandler">Read article</button>
                   <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                 </div>
                 <small class="text-muted">{{ new Date(article.createdAt).toLocaleDateString('uzb')}}</small>
@@ -18,11 +18,17 @@
         </div>
 </template>
 <script>
+
 export default {
     props:{
         article:{
             type: Object,
             required: true
+        }
+    },
+    methods:{
+        navigateHandler(){
+            return this.$router.push(`/article/${this.article.slug}`)
         }
     }
 }

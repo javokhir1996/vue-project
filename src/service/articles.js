@@ -1,9 +1,12 @@
 import axios from './axios'
 
-const ArcticleService = {
+const ArticleService = {
     articles(){
         return axios.get('/articles')
+    },
+    articleDetail(slug){
+        return axios.get(`/articles/${slug}`)
     }
 }
 
-export default ArcticleService
+export default ArticleService
