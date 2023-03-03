@@ -6,6 +6,9 @@
       </a>
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <template  v-if="isLoggedIn">
+            <RouterLink  class="me-3 py-2 text-dark text-decoration-none" :to="{name: 'create-article'}">
+                create article
+            </RouterLink>
             <RouterLink  class="me-3 py-2 text-dark text-decoration-none" :to="{name: 'home'}">
                 {{user.username}}
             </RouterLink>
