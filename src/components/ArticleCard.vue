@@ -8,8 +8,16 @@
               <p class="card-text">{{ article.description.slice(0, 250) }}...</p>
               <div class="d-flex justify-content-between align-items-center card-footer">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" @click="navigateHandler">Read article</button>
-                  <button v-if="article.author.username == user.username" type="button" class="btn btn-sm btn-outline-danger" @click="deleteArticleHandler">Delete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary"
+                   @click="navigateHandler">Read article</button>
+                  <button 
+                  v-if="article.author.username == user.username" 
+                  type="button" class="btn btn-sm btn-outline-danger"
+                   @click="deleteArticleHandler">Delete</button>
+                  <button 
+                  v-if="article.author.username == user.username" 
+                  type="button" class="btn btn-sm btn-outline-primary" 
+                  @click="navigateEditHandler">Edit</button>
                 </div>
                 <small class="text-muted">{{ new Date(article.createdAt).toLocaleDateString('uzb')}}</small>
               </div>
@@ -41,6 +49,9 @@ export default {
         deleteArticleHandler(){
           return this.$store.dispatch('deleteArticle', this.article.slug)
           .then(() => this.$store.dispatch('articles'))
+        },
+        navigateEditHandler(){
+          return this.$router.push(`/edit-article/${this.article.slug}`)
         }
     },
   }

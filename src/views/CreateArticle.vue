@@ -1,33 +1,22 @@
 <template>
-    <h1>create article vue</h1>
+    <h1>create article</h1>
     <div class="w-50 mx-auto">
-        <form action="" @submit.prevent>
-            <Input type="text" label="Title" v-model="title"/> 
-            <TextArea type="text" label="Description" v-model="description" />
-            <TextArea type="text" label="Body" v-model="body" />
-            <Button @click="createArticleHandler" :disabled="isLoading">Create Article</Button>
-        </form>
+        <ArticleForm
+        :initionalValue="initionalValue"
+        :onSubmitHandler="createArticleHandler"
+        :clickText = "'Create article'"
+        />
     </div>
 </template>
 <script>
 import { mapState } from 'vuex';
-
+import ArticleForm from '../components/ArticleForm.vue'
 export default {
-    data(){
-        return {
-            title: '',
-            description: '',
-            body: ''
-        }
+    components:{
+        ArticleForm
     },
     methods:{
-        createArticleHandler(){
-            const article = {
-                title: this.title,
-                description: this.description,
-                body: this.body,
-                tagList: []
-            }
+        createArticleHandler(article){
             this.$store.dispatch('createArticle', article)
             this.$router.push('/')
         }
@@ -35,7 +24,14 @@ export default {
     computed:{
         ...mapState({
             isLoading: state=> state.articles.isLoading
-        })
+        }),
+        initionalValue(){
+            return{
+                title: '',
+                description: '',
+                body: ''
+            }
+        }
     }
 }
 </script>
